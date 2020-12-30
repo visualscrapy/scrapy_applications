@@ -26,7 +26,21 @@ pyinstaller --onedir main.py
 
 
 References:
-# https://stackoverflow.com/questions/61607889/update-pyqt5-gui-inside-a-main-thread-based-on-signal-from-scrapy
-# https://github.com/kivy/kivy/issues/4182 reference for #reactor already installed
+``` https://stackoverflow.com/questions/61607889/update-pyqt5-gui-inside-a-main-thread-based-on-signal-from-scrapy
+ https://github.com/kivy/kivy/issues/4182 reference for #reactor already installed
+```
 
-
+```
+ Add this below code into you main.py if it using twisted.internet.reactor(Error: reactor already installed)
+if __name__ == "__main__":
+    import sys
+    if 'twisted.internet.reactor' in sys.modules:
+        del sys.modules['twisted.internet.reactor']
+    app = QtWidgets.QApplication(sys.argv)
+    import qt5reactor
+    qt5reactor.install()
+    w = MainWindow()
+    w.show()
+    from twisted.internet import reactor
+    reactor.run()
+```
