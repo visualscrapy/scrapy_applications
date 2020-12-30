@@ -1,32 +1,26 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1110, 594)
-
+        MainWindow.resize(1110, 778)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(1000, 480, 88, 27))
+        self.pushButton.setGeometry(QtCore.QRect(1000, 660, 88, 27))
         self.pushButton.setObjectName("pushButton")
-
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
-        self.tableWidget.setGeometry(QtCore.QRect(10, 40, 1081, 421))
+        self.tableWidget.setGeometry(QtCore.QRect(10, 210, 1081, 421))
         self.tableWidget.setMouseTracking(True)
         self.tableWidget.setColumnCount(3)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setRowCount(0)
-
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(2, item)
-
         self.tableWidget.horizontalHeader().setCascadingSectionResizes(True)
         self.tableWidget.horizontalHeader().setDefaultSectionSize(250)
         self.tableWidget.horizontalHeader().setMinimumSectionSize(52)
@@ -35,7 +29,23 @@ class Ui_MainWindow(object):
         self.tableWidget.verticalHeader().setDefaultSectionSize(26)
         self.tableWidget.verticalHeader().setSortIndicatorShown(False)
         self.tableWidget.verticalHeader().setStretchLastSection(False)
-
+        self.comboBox = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox.setGeometry(QtCore.QRect(1017, 160, 51, 24))
+        self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        # self.pushButton.pressed.connect(self.getComboValue) #Added for test on python Layout.py page
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(950, 160, 58, 21))
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1110, 22))
@@ -46,12 +56,7 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-        
-        self.actionList_City_s = QtWidgets.QAction(MainWindow)
-        self.actionList_City_s.setObjectName("actionList_City_s")
-        self.menuScraper.addAction(self.actionList_City_s)
         self.menubar.addAction(self.menuScraper.menuAction())
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -59,17 +64,23 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Quotes-Scraper"))
         self.pushButton.setText(_translate("MainWindow", "START"))
-        
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "TITLE"))
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "AUTHOR"))
         item = self.tableWidget.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "TAGS"))
-
-        self.menuScraper.setTitle(_translate("MainWindow", "Scraper"))
-        self.actionList_City_s.setText(_translate("MainWindow", "List City\'s"))
-
+        self.comboBox.setItemText(0, _translate("MainWindow", "1"))
+        self.comboBox.setItemText(1, _translate("MainWindow", "2"))
+        self.comboBox.setItemText(2, _translate("MainWindow", "3"))
+        self.comboBox.setItemText(3, _translate("MainWindow", "4"))
+        self.comboBox.setItemText(4, _translate("MainWindow", "5"))
+        self.comboBox.setItemText(5, _translate("MainWindow", "6"))
+        self.comboBox.setItemText(6, _translate("MainWindow", "7"))
+        self.comboBox.setItemText(7, _translate("MainWindow", "8"))
+        self.comboBox.setItemText(8, _translate("MainWindow", "9"))
+        self.comboBox.setItemText(9, _translate("MainWindow", "10"))
+        self.label.setText(_translate("MainWindow", "Page No."))
 
 if __name__ == "__main__":
     import sys
